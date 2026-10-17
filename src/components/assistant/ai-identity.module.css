@@ -1,0 +1,9 @@
+/* User-authorized AI identity exception; ordinary product and status tokens stay unchanged. */
+.identity {
+  --ai-tab-background: linear-gradient(120deg, #f6f1ff 0%, #ede7ff 55%, #e8edff 100%);
+  --ai-tab-hover: linear-gradient(120deg, #f0e8ff 0%, #e6dcff 55%, #e1e7ff 100%);
+  --ai-tab-pressed: linear-gradient(120deg, #eae0ff 0%, #dfd3ff 55%, #dbe2ff 100%);
+  --ai-accent: #7956c8;
+  --ai-text: #442879;
+  --ai-message-surface: #f5f0ff;
+}

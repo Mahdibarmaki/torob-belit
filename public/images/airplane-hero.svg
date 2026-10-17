@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">تصویر اختصاصی یک هواپیمای مسافربری</title>
+  <desc id="desc">هواپیمای سفید از نمای سه‌ربع با بال‌های خاکستری روشن و دم قرمز، بدون نشان شرکت هواپیمایی.</desc>
+  <g transform="rotate(-6 360 190)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m330 177 111-82 36 9-78 91" fill="#e9ecef" stroke="#d4d9de" stroke-width="1.5"/>
+    <path d="m542 177 33-108 32 2 2 111" fill="#e8182c"/>
+    <path d="m545 180 91-43 31 5-60 57" fill="#eef0f2" stroke="#d4d9de" stroke-width="1.5"/>
+    <path d="M64 208c23-33 59-53 126-54l323 8c52 2 96 14 145 24 11 2 11 7 0 10-48 16-93 28-145 30l-328 8c-60-1-98-10-121-26Z" fill="#fff" stroke="#d2d8de" stroke-width="1.5"/>
+    <path d="M65 209c33 11 73 15 123 14l325-7c46-2 90-11 145-21-48 16-93 28-145 30l-328 8c-60-1-98-10-120-24Z" fill="#edf0f2"/>
+    <path d="M89 192c23-17 53-27 98-28l324 8" stroke="#f4f5f6" stroke-width="4"/>
+    <path d="m107 183 20-9 13 1-4 12-27 5-2-9Zm36-8 17-1 1 11-21 1 3-11Z" fill="#59636c"/>
+    <path d="M177 176v27m9-28v27m339-17v21" stroke="#cbd1d7" stroke-width="1.5"/>
+    <g fill="#7c8791">
+      <rect x="201" y="182" width="5" height="8" rx="2.5"/><rect x="216" y="182" width="5" height="8" rx="2.5"/><rect x="231" y="182" width="5" height="8" rx="2.5"/><rect x="246" y="182" width="5" height="8" rx="2.5"/><rect x="261" y="182" width="5" height="8" rx="2.5"/><rect x="276" y="182" width="5" height="8" rx="2.5"/><rect x="291" y="182" width="5" height="8" rx="2.5"/><rect x="306" y="182" width="5" height="8" rx="2.5"/><rect x="321" y="182" width="5" height="8" rx="2.5"/><rect x="336" y="182" width="5" height="8" rx="2.5"/><rect x="351" y="182" width="5" height="8" rx="2.5"/><rect x="366" y="182" width="5" height="8" rx="2.5"/><rect x="381" y="182" width="5" height="8" rx="2.5"/><rect x="396" y="182" width="5" height="8" rx="2.5"/><rect x="411" y="182" width="5" height="8" rx="2.5"/><rect x="426" y="182" width="5" height="8" rx="2.5"/><rect x="441" y="183" width="5" height="8" rx="2.5"/><rect x="456" y="183" width="5" height="8" rx="2.5"/><rect x="471" y="183" width="5" height="8" rx="2.5"/><rect x="486" y="184" width="5" height="8" rx="2.5"/><rect x="501" y="184" width="5" height="8" rx="2.5"/><rect x="540" y="186" width="5" height="7" rx="2.5"/><rect x="555" y="188" width="5" height="7" rx="2.5"/>
+    </g>
+    <path d="m318 210 179 89 59 5-114-84-124-10Z" fill="#fafafa" stroke="#d2d8de" stroke-width="1.5"/>
+    <path d="m348 216 150 74 36 4" stroke="#e6e9ec" stroke-width="2"/>
+    <path d="m422 235 37 4c13 2 20 11 17 20-3 10-16 13-30 11l-25-5-11-16 12-14Z" fill="#f4f5f6" stroke="#cbd1d7" stroke-width="1.5"/>
+    <ellipse cx="421" cy="250" rx="15" ry="19" fill="#fff" stroke="#c2cad1" stroke-width="2"/>
+    <ellipse cx="421" cy="250" rx="9" ry="13" fill="#6a7580"/>
+    <path d="m414 244 11 12m-12-4 15-3m-9-9 4 22" stroke="#aab3bb" stroke-width="1.5"/>
+    <path d="m541 200 77 30 32-2-43-28" fill="#f4f5f6" stroke="#d2d8de" stroke-width="1.5"/>
+    <path d="m574 91 25 2m-29 12 30 2" stroke="#fff" stroke-width="2"/>
+    <path d="m538 295 18 9-21-1-11-5" fill="#e8182c"/>
+  </g>
+</svg>

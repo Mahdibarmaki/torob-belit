@@ -1,0 +1,35 @@
+.panel { min-inline-size: 0; padding: var(--spacing-16); border: 1px solid var(--color-fog); border-radius: var(--radius-cards); background: var(--color-paper-white); text-align: start; }
+.toggle { display: inline-flex; align-items: center; gap: var(--spacing-8); min-block-size: var(--spacing-44); padding-inline: var(--spacing-8); border-radius: var(--radius-buttons); background: transparent; font-size: var(--text-ui); font-weight: 500; }
+.toggle:hover { background: var(--color-linen); }
+.expanded { transform: rotate(180deg); }
+.chips, .priorities { display: flex; flex-wrap: wrap; gap: var(--spacing-8); }
+.chips { margin-block: var(--spacing-8); align-items: center; }
+.chip, .priority { display: inline-flex; align-items: center; justify-content: center; min-block-size: var(--spacing-44); min-inline-size: 0; padding: var(--spacing-8) var(--spacing-12); border: 1px solid var(--color-fog); border-radius: var(--radius-buttons); background: var(--color-paper-white); font-size: var(--text-ui); line-height: var(--leading-ui); overflow-wrap: anywhere; }
+.chip:hover, .priority:hover { background: var(--color-linen); }
+.priority[aria-pressed="true"] { background: var(--color-brand-tint); color: var(--color-carbon); border-color: var(--color-fog); }
+.fact { display: inline-flex; align-items: center; min-inline-size: 0; padding: var(--spacing-4) var(--spacing-8); border-radius: var(--radius-tags); background: var(--color-mist); color: var(--color-graphite); font-size: var(--text-caption); line-height: var(--leading-body); overflow-wrap: anywhere; }
+.body { padding-block-start: var(--spacing-12); }
+.body[hidden] { display: none; }
+.controls, .group { min-inline-size: 0; padding: 0; border: 0; margin: 0; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-12); }
+.field { display: grid; align-content: start; min-inline-size: 0; gap: var(--spacing-4); font-size: var(--text-ui); }
+.field[hidden] { display: none; }
+.field > :global(.search-control) { inline-size: 100%; min-block-size: var(--spacing-44); border: 1px solid var(--color-fog); border-radius: var(--radius-inputs); background: var(--color-mist); padding: var(--spacing-12); }
+.field :global(.select), .field :global(.input) { min-inline-size: 0; }
+.group { display: grid; gap: var(--spacing-12); padding-block-start: var(--spacing-16); margin-block-start: var(--spacing-16); border-block-start: 1px solid var(--color-fog); }
+.group > legend { padding: 0; font-size: var(--text-ui); font-weight: 700; }
+.help, .unsupported, .error { font-size: var(--text-caption); line-height: var(--leading-body); color: var(--color-graphite); }
+.unsupported { margin-block-start: var(--spacing-12); padding: var(--spacing-12); border-radius: var(--radius-inputs); background: var(--color-linen); }
+.airlines summary { display: flex; align-items: center; min-block-size: var(--spacing-44); cursor: pointer; font-size: var(--text-ui); color: var(--color-carbon); }
+.airlines summary::before { content: "+"; margin-inline-end: var(--spacing-8); }
+.airlines[open] summary::before { content: "−"; }
+.choiceGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--spacing-12); }
+.check { display: flex; align-items: center; gap: var(--spacing-8); min-block-size: var(--spacing-44); font-size: var(--text-ui); }
+.actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: var(--spacing-8); margin-block-start: var(--spacing-12); }
+.actions :global(.button), .group > :global(.button), .unsupported :global(.button) { min-block-size: var(--spacing-44); }
+.applyButton:active:not(:disabled) { background: var(--color-brand-primary-hover); box-shadow: none; }
+.constraints { display: grid; min-inline-size: 0; gap: var(--spacing-16); }
+.error { color: var(--color-carbon); }
+.panel :is(button, input, select, summary):focus-visible { outline: 2px solid var(--color-graphite); outline-offset: 2px; }
+.constraints :is(button, input, select):focus-visible { outline: 2px solid var(--color-graphite); outline-offset: 2px; }
+@media (max-width: 430px) { .grid { grid-template-columns: minmax(0, 1fr); } .panel { padding: var(--spacing-12); } }

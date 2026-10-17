@@ -1,0 +1,22 @@
+.card { display: grid; align-content: start; gap: var(--spacing-16); padding: var(--spacing-16); min-inline-size: 0; }
+.disclosure { margin-block: var(--spacing-12); color: var(--color-graphite); font-size: var(--text-caption); }
+.header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-8); min-inline-size: 0; }
+.airlines { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-8); min-inline-size: 0; font-size: var(--text-ui); font-weight: 700; }
+.remove { flex-shrink: 0; min-inline-size: 40px; min-block-size: 40px; padding: var(--spacing-8); color: var(--color-brand-primary); }
+.remove:hover { color: var(--color-brand-primary-hover); background: var(--color-brand-tint); }
+.remove:active { background: var(--color-mist); }
+.seller { display: grid; gap: var(--spacing-8); }
+.priceRow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--spacing-8); }
+.note { color: var(--color-graphite); font-size: var(--text-caption); line-height: 1.7; }
+.segment { display: grid; gap: var(--spacing-12); min-inline-size: 0; }
+.groupTitle { margin: 0; color: var(--color-carbon); font-size: var(--text-ui); font-weight: 500; }
+.schedule { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--spacing-8); border-radius: var(--radius-inputs); background: var(--color-linen); padding: var(--spacing-12); }
+.endpoint { display: grid; align-content: start; gap: var(--spacing-4); min-inline-size: 0; font-size: var(--text-caption); overflow-wrap: anywhere; }
+.endpoint time { color: var(--color-carbon); font-size: var(--text-subheading); font-weight: 700; unicode-bidi: isolate; text-align: start; }
+.endpoint > bdi { color: var(--color-carbon); font-size: var(--text-ui); font-weight: 500; }
+.endpoint small { color: var(--color-graphite); font-size: var(--text-caption); }
+.endpointLabel { display: inline-flex; align-items: center; gap: var(--spacing-4); color: var(--color-graphite); }
+.endpointLabel svg { flex-shrink: 0; }
+.conditions, .history { display: grid; gap: var(--spacing-8); min-inline-size: 0; }
+.historyLeg { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-8); color: var(--color-graphite); font-size: var(--text-caption); }
+.historyLeg :global(.risk-indicator) { justify-self: start; font-size: var(--text-caption); }

@@ -1,0 +1,38 @@
+.panelContents { min-inline-size: 0; }
+.groups { min-inline-size: 0; }
+.section { min-inline-size: 0; padding-block: var(--spacing-24); border-block-end: 1px solid var(--color-fog); }
+.sectionTitle { display: flex; align-items: center; gap: var(--spacing-8); margin: 0 0 var(--spacing-12); color: var(--color-carbon); font-size: var(--text-ui); font-weight: 700; line-height: 1.5; }
+.controls { display: grid; gap: var(--spacing-4); }
+.controls > label { display: flex; align-items: center; gap: var(--spacing-8); min-block-size: 36px; cursor: pointer; }
+.controls p { font-size: var(--text-small); color: var(--color-graphite); }
+.actions { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--spacing-8); padding-block-start: var(--spacing-20); }
+.actions > button { min-inline-size: 0; padding-inline: var(--spacing-8); white-space: nowrap; }
+.clearButton { cursor: pointer; color: var(--color-carbon); background: var(--color-paper-white); border-color: var(--color-fog); transition: background-color .15s, border-color .15s; }
+.clearButton:hover:not(:disabled) { background: var(--color-mist); border-color: var(--color-graphite); }
+.clearButton:active:not(:disabled) { background: var(--color-fog); }
+.clearButton:focus-visible { outline: 2px solid var(--color-carbon); outline-offset: 3px; }
+.clearButton:disabled { cursor: not-allowed; opacity: .65; }
+.priceRange { min-inline-size: 0; }
+.slider { position: relative; isolation: isolate; block-size: 44px; margin-inline: 10px; }
+.sliderTrack { position: absolute; inset-inline: 0; inset-block-start: 21px; block-size: 4px; border-radius: var(--radius-tags); background: var(--color-fog); }
+.sliderSelected { position: absolute; inset-block: 0; border-radius: inherit; background: var(--color-brand-primary); }
+.sliderInput { position: absolute; inset: 0; margin: 0; padding: 0; inline-size: 100%; block-size: 44px; appearance: none; -webkit-appearance: none; background: transparent; pointer-events: none; cursor: pointer; outline: none; }
+.sliderInput::-webkit-slider-runnable-track { block-size: 4px; background: transparent; }
+.sliderInput::-moz-range-track { block-size: 4px; background: transparent; }
+.sliderInput::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; pointer-events: auto; inline-size: 20px; block-size: 20px; margin-block-start: -8px; border-radius: var(--radius-tags); border: 2px solid var(--color-brand-primary); background: var(--color-paper-white); box-shadow: var(--shadow-subtle-2); }
+.sliderInput::-moz-range-thumb { pointer-events: auto; inline-size: 16px; block-size: 16px; border-radius: var(--radius-tags); border: 2px solid var(--color-brand-primary); background: var(--color-paper-white); box-shadow: var(--shadow-subtle-2); }
+.sliderMinimum { z-index: 2; }
+.sliderMaximum { z-index: 3; }
+.sliderMinimum[data-front] { z-index: 4; }
+.sliderInput:focus-visible { z-index: 5; outline: none; }
+.sliderInput:focus-visible::-webkit-slider-thumb { outline: 2px solid var(--color-carbon); outline-offset: 3px; }
+.sliderInput:focus-visible::-moz-range-thumb { outline: 2px solid var(--color-carbon); outline-offset: 3px; }
+.sliderInput:disabled { cursor: not-allowed; }
+.sliderInput:disabled::-webkit-slider-thumb { border-color: var(--color-graphite); pointer-events: none; }
+.sliderInput:disabled::-moz-range-thumb { border-color: var(--color-graphite); pointer-events: none; }
+.slider[data-disabled] .sliderSelected { background: var(--color-fog); }
+.priceLabels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: var(--spacing-8); margin-block-end: var(--spacing-8); }
+.priceLabels > span { display: grid; min-inline-size: 0; gap: var(--spacing-4); color: var(--color-graphite); font-size: var(--text-caption); line-height: var(--leading-caption); }
+.priceLabelHeading { display: flex; align-items: baseline; justify-content: space-between; gap: var(--spacing-4); }
+.priceLabels output { display: block; min-inline-size: 0; border-radius: var(--radius-tags); background: var(--color-brand-tint, #fff0f2); color: var(--color-carbon); padding: var(--spacing-4); font-size: var(--text-caption); font-weight: 400; line-height: var(--leading-caption); text-align: center; white-space: nowrap; }
+.priceUnavailable { padding-block: var(--spacing-8); }

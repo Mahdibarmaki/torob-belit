@@ -1,0 +1,13 @@
+.metadata { display: grid; gap: var(--spacing-8); min-inline-size: 0; color: var(--color-graphite); font-size: var(--text-small); font-weight: 400; line-height: 1.7; }
+.row { display: flex; flex-wrap: wrap; gap: var(--spacing-8) var(--spacing-24); margin: 0; padding: 0; list-style: none; min-inline-size: 0; overflow: hidden; }
+.item { position: relative; display: inline-flex; align-items: flex-start; gap: var(--spacing-4); min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; }
+.item > svg { flex-shrink: 0; margin-block-start: 2px; }
+/* A separator sits inside the gap. Row-edge clipping suppresses it when an item wraps. */
+.item + .item::before { content: "•"; position: absolute; inset-inline-start: -15px; color: var(--color-ash); }
+.leg { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: start; gap: var(--spacing-8); }
+.legLabel { color: var(--color-carbon); }
+.note { color: var(--color-graphite); font-size: var(--text-caption); margin: 0; }
+
+.badgeRow { display: grid; gap: var(--spacing-8); min-inline-size: 0; }
+.description { display: flex; align-items: flex-start; gap: var(--spacing-8); color: var(--color-graphite); font-size: var(--text-caption); line-height: 1.7; }
+.description svg { flex-shrink: 0; margin-block-start: 2px; }

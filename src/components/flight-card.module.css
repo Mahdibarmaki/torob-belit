@@ -1,0 +1,17 @@
+.airlineHeading { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-8) var(--spacing-12); min-inline-size: 0; }
+.identityPair { font-size: var(--text-ui); font-weight: 700; display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-4) var(--spacing-8); min-inline-size: 0; max-inline-size: 100%; }
+.modelGroup { display: inline-flex; align-items: baseline; gap: var(--spacing-8); min-inline-size: 0; }
+.airlineHeading :global(.aircraft-caption) { color: var(--color-graphite); font-size: var(--text-caption); font-weight: 400; line-height: 1.6; }
+.airlineHeading bdi[lang="en"] { direction: ltr; unicode-bidi: isolate; }
+.modelGroup bdi { overflow-wrap: anywhere; }
+.sellerHeader { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-rows: auto auto; align-items: center; column-gap: var(--spacing-16); row-gap: var(--spacing-4); min-inline-size: 0; }
+.sellerHeader h3 { grid-column: 1; grid-row: 1; margin: 0; min-inline-size: 0; overflow-wrap: anywhere; text-align: start; }
+.sellerHeader > :global(.offer-price) { grid-column: 2; grid-row: 1; min-inline-size: 0; text-align: end; }
+.sellerPriceNote { grid-column: 2; grid-row: 2; color: var(--color-graphite); font-size: var(--text-caption); font-weight: 400; text-align: end; }
+
+/* The existing tablet/desktop stack is unchanged; only the mobile content row adapts. */
+@media (max-width: 700px) {
+  .mobilePriceSummary { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: var(--spacing-16); inline-size: 100%; min-inline-size: 0; }
+  .mobilePriceSummary > :global(.price) { min-inline-size: 0; text-align: right; }
+  .mobilePriceSummary > :global(.price-caption) { min-inline-size: 0; margin-block-start: 0; text-align: left; overflow-wrap: anywhere; }
+}

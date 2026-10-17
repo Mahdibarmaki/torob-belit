@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.tools/
+out/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+.DS_Store
+.env*
+!.env.example
+
+# User-supplied reference archive is retained locally; only sanitized fixtures enter app source.
+reference/
+

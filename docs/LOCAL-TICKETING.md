@@ -1,0 +1,50 @@
+# Local demonstration ticketing
+
+> **Superseded — 2026-10-17:** Torob Belit now provides flight search, comparison and external seller referrals. Internal passenger entry, checkout, ticket issuance, My Tickets, ticket storage and PDF/QR export have been removed. Purchases happen on sellers’ websites; no payment or ticket is created here. [METASEARCH.md](METASEARCH.md) defines the current product. All implementation and verification details below are a historical record, not active routes or capabilities.
+
+The purchase action now supports an entirely local, explicit simulation: select a complete offer (or an outbound and inbound pair), enter adult passenger details, review the immutable journey and total, confirm local issuance, and revisit/download the resulting record. No payment, inventory hold, airline reservation, account verification, or transport provider request occurs.
+
+## Domain and selection boundary
+
+- `src/domain/booking.ts` defines `JourneySelection`, typed passenger/contact drafts, `CheckoutDraft`, and `DemoTicket`. Existing `Flight` and `SellerOffer` remain the source contracts.
+- Only available, complete, single-ticket offers from the authored `demo` source may enter this simulation. Unpriced reference fixtures and live/unavailable provider modes cannot issue local tickets.
+- Stored JSON is untrusted. Parsing reconstructs an allowlisted snapshot, verifies the selected offer belongs to the flight, airport references, segment/baggage identities, chronology, duration/stops, party count, provenance, and canonical money.
+- A round-trip record retains two distinct flight/offer IDs with outbound/inbound directions. The return route must reverse the outbound route and depart after outbound arrival. Instant comparisons use parsed UTC epochs, including equivalent fractional ISO representations.
+- Each seller offer already totals the selected party. The journey adds these canonical integer **rial** amounts once, using `BigInt` to detect overflow; there is no additional passenger multiplication or Toman conversion. Presentation reuses `OfferPrice`/`formatToman`.
+- Search currently supports adults only. Passenger validation requires age **12 or older at every segment departure**, using origin-local Gregorian date-only values. The existing shared Jalali picker presents birth dates without creating timestamps. The supported birth-date lower bound is 1900-01-01.
+- Domestic passengers may supply a normalized ten-digit Iranian national ID with checksum or an explicitly selected passport. International journeys in the current curated airport catalog require passport input. Passport format is an application-level 5–15 Latin alphanumeric check, not official document verification. No document is verified against a government or carrier service.
+- Duplicate normalized identity/type pairs are rejected. Names accept Persian and Latin letters. Contact validation accepts an Iranian `09` mobile number; email is optional and is not used to send a message. Gender is omitted because this local booking model does not require it. Child/infant categories are not invented.
+
+## Persistence and privacy
+
+`src/lib/booking-storage.ts` separates temporary and issued state:
+
+| Store | Key | Contents and lifetime |
+| --- | --- | --- |
+| `sessionStorage` | `torob-belit.checkout.v1.<UUID>` | Selected journey, in-progress passenger names, birth dates, full typed identity, buyer contact, and current step; available within this browser tab until issuance or the browser session ends. |
+| `localStorage` | `torob-belit.ticket.v1.TB-<UUID>` | Issued journey snapshot, names, adult category, identity type and **only four trailing identity characters preceded by masking marks**, total, reference, and issue timestamp. No full national ID/passport, date of birth, phone, or email is persisted here. |
+
+The URL contains only an opaque checkout UUID or internal ticket reference. QR codes contain the same-origin `/tickets/<reference>` URL, with no passenger fields. They can open the local record only in a browser that holds it and are explicitly marked as invalid for airport use. Local tickets are not connected to a verified account, synced between devices, or backed up to a server. Clearing browser storage removes them.
+
+The ticket reference is derived from the checkout UUID. Issuance is synchronous and uses one stable local-storage key; repeated submissions/reloads return the existing issued record rather than creating another reference. The in-progress session draft is removed after successful issuance. An unavailable/full storage write reports an error, keeps the draft, and never displays false success. Missing, corrupted, oversized, and wrong-key records have recovery paths; My Tickets skips malformed records with a visible count while retaining valid tickets. Separate tabs cannot create two distinct ticket references from the same checkout ID. This is local idempotency, not a transactional booking/payment guarantee.
+
+### Checkout navigation refinements
+
+Checkout now uses the existing `/checkout?selection=<opaque UUID>` route for passenger entry and adds `&step=confirm` only after the shared passenger validation succeeds. The URL contains no passenger information. This adds real browser back/forward entries without replacing the selected journey or saved form. A completed passenger breadcrumb is a native button; the completed selection breadcrumb links to the same route/date/party search derived from the preserved snapshot. Future steps are non-interactive. Manual future-step URLs are reconciled against the stored validated step and current passenger validation, so they cannot expose issuance for an incomplete or unreviewed draft. Editing any field removes that draft's confirmation permission until Continue validates it again. Browser back and forward can revisit an unchanged, previously reviewed draft. The existing issuance boundary still revalidates everything independently.
+
+Issued records remain immutable. Full passenger documents have already been removed after issuance, so no breadcrumb pretends that an issued ticket can reopen its original sensitive-data form. The selected-trip heading sits immediately outside its card, and birth-date/document controls share fixed-height grid tracks so help/error messages never stretch the adjacent control.
+
+## Ticket presentation and PDF
+
+- The constrained-width white ticket reuses Yekan Bakh FaNum, the reviewed design tokens, the shared RTL airport route, actual airline/fare/seller information, a dashed divider, actual passenger names, a neutral avatar, and local QR code. No airline logos, portraits, gate, terminal, seat assignment, or boarding-pass credential is invented.
+- Both outbound and inbound journeys, their dates, prices, baggage, and actual fare conditions appear together. Unsupported rescheduling is not presented as an actionable control.
+- `qrcode` generates the real QR image locally. `html-to-image` captures the actual rendered ticket after local fonts and QR images have loaded. `jspdf` creates a **real downloadable PDF** with a custom page height so all passengers and both directions remain visible. The document contains an explicit demonstration/invalid-for-travel disclosure.
+- The PDF uses an embedded raster rendering, which preserves Persian joining, RTL layout, local font appearance and QR geometry. Its text is not selectable/searchable; it does not claim accessible tagged-PDF support. The on-screen ticket remains semantic HTML. No external image/font service or server-side PDF service is called.
+- The selected journey and issued document reuse the shared neutral metadata badges and actual offer-specific baggage/refund/change terms. Status badges remain separate: dark green on a pale green surface means a locally issued demonstration record, never successful airline reservation or a cancellation-history rating. My Tickets retains the same persistent records and uses neutral route/passenger/airline badges with a real red View Ticket link.
+- The ticket header reuses the unchanged horizontal `Brand` lockup. Airline identities reuse the centralized verified-logo mapping; unsupported/unverified airlines keep the generic fallback. Current `DESIGN.md`/Yekan Bakh remain authoritative despite stale Vazirmatn/Airbnb wording in the refinement prompt.
+- The six-part branding follow-up removes the former inline logo-source section and its spacing from the issued-ticket page. Tickets using an attribution-requiring CC BY-SA logo retain a small **مجوز نشان‌ها** action outside the document that opens the existing accessible native credit dialog. CC0/PD-only tickets have no such extra action. The complete manifest/documentation and existing About credits remain unchanged. This conditional license access is the explicit exception to removing redundant presentation; required credit is not silently discarded.
+- Every PDF still includes visible authors/source/license URLs for its actual verified logos. Download creates a temporary inert offscreen clone of the real ticket, appends the reviewed credit component's DOM from the closed/native dialog, waits for fonts and all images, then captures this complete export. The clone never enters the ordinary ticket layout, introduces no reserved space or visual flash, and is removed on success or failure. No passenger, storage, issuance, or pricing behavior changes.
+
+## Verification
+
+Meaningful unit coverage is in `tests/booking.test.ts` and `tests/booking-storage.test.ts`: selected-offer integrity, unsafe/unknown units, exact party totals and overflow, itinerary chronology (including fractional ISO representations), adult boundaries, identity normalization/checksum/duplicates, international passport requirements, invalid schema/totals, stable issuance, refresh recovery, sensitive-data removal, corrupted entries, and failed storage writes. Final combined application lint/typecheck/build/browser results are recorded by the parent integration task after the entire product evolution is complete.

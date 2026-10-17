@@ -1,0 +1,57 @@
+.searchPanel:global(.search-panel) {
+  position: relative;
+  /* Reserve the protruding 48px tab plus a 24px gap below the Hero. */
+  margin-block-start: calc(var(--spacing-48) + var(--spacing-24));
+  /* The joined upper-right corner now belongs to the raised tab. */
+  border-start-start-radius: 0;
+}
+
+.rail {
+  position: relative;
+  block-size: 0;
+  min-inline-size: 0;
+  z-index: 2;
+}
+
+.entry {
+  position: absolute;
+  inset-inline-start: -1px;
+  inset-block-end: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  min-block-size: var(--spacing-48);
+  min-inline-size: 0;
+  max-inline-size: calc(100% + 2px);
+  padding: var(--spacing-8) var(--spacing-24);
+  border: 1px solid var(--color-fog);
+  border-block-end: 0;
+  border-radius: var(--radius-cards) var(--radius-cards) 0 0;
+  background: var(--ai-tab-background);
+  color: var(--ai-text);
+  font-size: var(--text-ui);
+  font-weight: 500;
+  line-height: var(--leading-ui);
+  white-space: nowrap;
+  transition: color 150ms ease;
+}
+
+.entry > svg {
+  color: var(--ai-accent);
+}
+
+.entry:hover {
+  background: var(--ai-tab-hover);
+}
+
+.entry:active {
+  background: var(--ai-tab-pressed);
+}
+
+.entry:focus-visible {
+  outline: 2px solid var(--ai-text);
+  outline-offset: var(--spacing-4);
+}
+
+@media (prefers-reduced-motion: reduce) { .entry { transition: none; } }

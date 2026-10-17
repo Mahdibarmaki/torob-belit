@@ -1,0 +1,65 @@
+.page { max-inline-size: 960px; margin-inline: auto; padding: var(--spacing-48) var(--spacing-24) var(--spacing-24); min-block-size: calc(100svh - 80px); display: flex; flex-direction: column; gap: var(--spacing-24); min-inline-size: 0; }
+.navigation { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-12); }
+.navigation a { display: inline-flex; align-items: center; gap: var(--spacing-8); color: var(--color-graphite); min-block-size: 44px; font-size: var(--text-ui); }
+.navigation a:hover { color: var(--color-carbon); }
+.navigation a:focus-visible { outline: 2px solid var(--color-graphite); outline-offset: 4px; border-radius: var(--radius-inputs); }
+.stage { flex: 1; display: flex; flex-direction: column; min-inline-size: 0; border: 1px solid var(--color-fog); border-radius: var(--radius-cards); background: var(--color-paper-white); }
+.body { flex: 1; display: flex; flex-direction: column; padding: var(--spacing-32); min-inline-size: 0; }
+.welcome { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--spacing-24); text-align: center; padding-block: var(--spacing-48); }
+.airlines { display: flex; align-items: start; justify-content: center; gap: var(--spacing-24); max-inline-size: 100%; }
+.airline { display: grid; justify-items: center; gap: var(--spacing-8); font-size: var(--text-caption); font-weight: 400; }
+.airlineLink { color: inherit; border-radius: var(--radius-images); }
+.airlineLink:focus-visible { outline: 2px solid var(--color-graphite); outline-offset: var(--spacing-4); }
+.welcome h1 { font-size: var(--text-heading-lg); line-height: 1.3; font-weight: 700; letter-spacing: normal; }
+.description { margin: 0; max-inline-size: 540px; color: var(--color-graphite); font-size: var(--text-body); line-height: 1.8; }
+.suggestions { max-inline-size: 640px; inline-size: 100%; display: grid; gap: var(--spacing-12); }
+.suggestions h2 { font-size: var(--text-ui); font-weight: 500; color: var(--color-graphite); margin: 0; }
+.suggestionGrid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--spacing-12); }
+.suggestion { display: flex; align-items: center; gap: var(--spacing-12); text-align: start; padding: var(--spacing-12) var(--spacing-16); border: 1px solid var(--color-fog); border-radius: var(--radius-cards); background: var(--color-paper-white); color: var(--color-carbon); font-size: var(--text-ui); min-block-size: 56px; line-height: 1.7; cursor: pointer; }
+.suggestion > svg { color: var(--color-graphite); flex: none; }
+.suggestion:hover { background: var(--color-mist); }
+.suggestion:active { background: var(--color-fog); }
+.suggestion:focus-visible { outline: 2px solid var(--color-graphite); outline-offset: 2px; }
+.suggestion:disabled { opacity: .6; cursor: wait; }
+.composerDock { position: sticky; bottom: var(--assistant-keyboard-inset, 0px); z-index: 5; background: var(--color-paper-white); padding-block: var(--spacing-16) max(var(--spacing-16), env(safe-area-inset-bottom)); margin-block-start: auto; }
+.composer { display: flex; align-items: end; gap: var(--spacing-12); padding: var(--spacing-12); border: 1px solid var(--color-fog); border-radius: var(--radius-3xl); background: var(--color-paper-white); box-shadow: var(--shadow-subtle-2); }
+.composer:focus-within { outline: 2px solid var(--color-graphite); outline-offset: 2px; }
+.composer textarea { border: 0; background: transparent; color: var(--color-carbon); font: inherit; font-size: var(--text-ui); line-height: 1.8; resize: none; inline-size: 100%; min-inline-size: 0; min-block-size: 44px; max-block-size: 160px; padding: var(--spacing-8); outline: 0; overflow-y: auto; }
+.composer textarea::placeholder { color: var(--color-graphite); }
+.composer :global(.button) { flex: none; inline-size: 44px; min-block-size: 44px; padding: var(--spacing-8); }
+.caption { margin: var(--spacing-12) 0 0; font-size: var(--text-caption); color: var(--color-graphite); text-align: center; line-height: 1.7; }
+.messages { display: flex; flex-direction: column; gap: var(--spacing-16); padding: 0; margin: var(--spacing-24) 0; list-style: none; min-inline-size: 0; }
+.message { inline-size: fit-content; max-inline-size: min(85%, 640px); min-inline-size: 0; padding: var(--spacing-12) var(--spacing-16); border-radius: var(--radius-cards); color: var(--color-carbon); }
+.message p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; unicode-bidi: plaintext; font-size: var(--text-body); line-height: 1.9; }
+.user { align-self: flex-start; background: var(--color-mist); }
+.assistant { align-self: flex-end; background: var(--ai-message-surface); }
+.notice { padding: var(--spacing-12) var(--spacing-16); border-radius: var(--radius-inputs); background: var(--color-linen); color: var(--color-graphite); font-size: var(--text-ui); line-height: 1.8; }
+.busy { display: inline-flex; align-items: center; gap: var(--spacing-8); font-size: var(--text-ui); color: var(--color-graphite); }
+.busy svg { animation: pulse 1.2s ease-in-out infinite alternate; }
+.recommendations { display: grid; gap: var(--spacing-24); margin-block: var(--spacing-24); min-inline-size: 0; }
+.recommendations h2 { font-size: var(--text-heading-sm); }
+.recommendations > div > .caption { text-align: start; }
+.recommendation { display: grid; gap: var(--spacing-12); min-inline-size: 0; }
+.recommendation > :global(.button) { justify-self: start; }
+.recommendationHeader { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--spacing-12); }
+.recommendationHeader h3 { font-size: var(--text-subheading); font-weight: 500; }
+.cardGrid { display: grid; grid-template-columns: minmax(0,1fr); gap: var(--spacing-12); min-inline-size: 0; }
+.reasonList { padding-inline-start: var(--spacing-24); display: grid; gap: var(--spacing-12); line-height: 1.8; }
+.scoreTable { overflow-x: auto; }
+.scoreTable table { inline-size: 100%; border-collapse: collapse; font-size: var(--text-ui); text-align: start; }
+.scoreTable th, .scoreTable td { text-align: start; padding: var(--spacing-8); border-block-end: 1px solid var(--color-fog); }
+.scoreTable caption { text-align: start; margin-block-end: var(--spacing-12); font-weight: 500; }
+@keyframes pulse { to { opacity: .35; } }
+@media (max-width: 700px) {
+  .page { padding: var(--spacing-24) var(--spacing-12) var(--spacing-12); gap: var(--spacing-24); }
+  .body { padding: var(--spacing-16); }
+  .welcome { padding-block: var(--spacing-32); gap: var(--spacing-20); }
+  .welcome h1 { font-size: var(--text-heading-sm); }
+  .description { font-size: var(--text-ui); }
+  .airlines { gap: var(--spacing-16); }
+  .suggestionGrid { grid-template-columns: minmax(0,1fr); }
+  .suggestion { min-block-size: 48px; padding: var(--spacing-8) var(--spacing-12); }
+  .message { max-inline-size: 92%; }
+  .composerDock { padding-block-start: var(--spacing-12); }
+}
+@media (prefers-reduced-motion: reduce) { .busy svg { animation: none; } }
