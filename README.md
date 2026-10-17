@@ -161,8 +161,8 @@ Routes are `/`, `/results`, and `/ai-assistant`, plus search/demo and assistant 
 
 ## Demo
 
-- **Live website URL:** _To be added._
-- **GitHub repository URL:** _To be added._
-- **Five-minute demo video:** _To be added._
+- **Live website URL:** Not deployed yet.
+- **GitHub repository URL:** https://github.com/Mahdibarmaki/torob-belit
+- **Five-minute demo video:** Sent
 
 [Current UI captures](docs/screenshots/metasearch/) show the local seller-referral and round-trip planning experience.
